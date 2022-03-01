@@ -257,6 +257,52 @@ var lastNames = ['Cat', 'Feline', 'Kitten', 'Calico'];
 
 //HINT: a solution may involve using a for loop to iterate over the length of one array to push each name object onto an array of name objects that will be returned from the function.
 
-function joinVars(ary1, ary2){
-    var obj = [];
-    for (var i = 0; i < ary1.length; i += 1) {
+function createNames(arr1, arr2) {
+    var output = [];
+    var length = arr1.length;
+    for (var i = 0; i < length; i += 1) {
+        output.push({
+            firstName: arr1[3],
+            lastName: arr2[3]
+        });
+    }
+    return output;
+}
+
+
+
+
+console.log(createNames(firstNames, lastNames));
+
+function remainder(input1, input2){
+    if(input1 > input2){
+        return input1 % input2;
+    } else if(input2 > input1){
+        return input2 % input1;
+    }
+}
+
+console.log(remainder(4, 2))
+
+
+
+
+function isLockNessMonster(s) {
+    if (s.includes("tree fiddy") || s.includes("three fifty") || s.includes("3.50")){
+        return "is the loch ness monster";
+    } else {
+        return "safe to give tree fiddy"
+    }
+}
+
+console.log(isLockNessMonster("Your girlscout cookies are ready to ship. Your total comes to tree fiddy"))
+
+console.log(isLockNessMonster("Your girlscout cookies are ready to ship. Your total comes to tree fiddy"))
+
+console.log(isLockNessMonster("Yo, I heard you were on the lookout for Nessie. Let me know if you need assistance."))
+
+console.log(isLockNessMonster("Yo, I heard you were on the lookout for Nessie. Let me know if you need assistance."))
+
+console.log(isLockNessMonster("The cost of the ferry across Loch Ness is 3.50"))
+
+console.log(isLockNessMonster("The leading batter this year is hitting three fifty"))
