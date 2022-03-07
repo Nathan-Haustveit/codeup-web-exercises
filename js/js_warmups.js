@@ -306,3 +306,137 @@ console.log(isLockNessMonster("Yo, I heard you were on the lookout for Nessie. L
 console.log(isLockNessMonster("The cost of the ferry across Loch Ness is 3.50"))
 
 console.log(isLockNessMonster("The leading batter this year is hitting three fifty"))
+
+
+//Create a function that accepts an object with two properties, parcelNumber and weight, and return the weight//
+// parcel.weight = function (object){
+//     return object.weight
+// }
+// parcel ({
+//     parcelNumber: 1,
+//     weight: 20
+// })
+
+
+
+
+
+//Create a function that accepts an array of objects with two properties, parcelNumber and weight, and outputs the content to a web page in two columns, with the total listed at the end.
+
+// function totalWeight(arrayOfObjects){
+//     var total = 0;
+//     for(var i = 0; i < arrayOfObjects[i].length; i++);{
+//         total += arrayOfObjects[i].weight;
+//
+// return total;
+// }
+//
+// var parcels = [{number: 1, weight: 20}, {number: 2, weight: 25}];
+//
+// console.log(totalWeight(parcels));
+
+
+//Create a function that accepts an array of objects with two properties, parcelNumber and weight, and outputs the content to a web page in two columns, with the total listed at the end.
+
+
+
+//DOM warmup:
+//Create a heading that says "Good Morning!"
+//Create a button that says "Press if after 12pm"
+//When the button is pressed, "Good morning" changes to "Good afternoon"
+
+var pastNoon = document.querySelector("button");
+function changeToPastNoon(){
+document.querySelector('h2').innerText = "Good afternoon";
+}
+pastNoon.addEventListener("click", changeToPastNoon)
+
+
+    //Consider the following array of users:
+
+        var users = [
+            {
+                username: 'fsmith',
+                email: 'fsmith@email.com',
+                numberOfLogins: 23
+            },
+            {
+                username: 'ksmith',
+                email: 'ksmith@email.com',
+                numberOfLogins: 100
+            },
+            {
+                username: 'lsmith',
+                email: 'lsmith@email.com',
+                numberOfLogins: 10
+            }
+        ];
+
+    //1. Create a function, returnFirstUser, that takes in an array of user objects and returns the first user object.
+
+    //returnFirstUser(users) should return...
+
+    //{
+    //    username: 'fsmith',
+    //        email: 'fsmith@email.com',
+    //    numberOfLogins: 23
+    //}
+
+    function returnFirstUser(users){
+        return users[0];
+    }
+
+console.log(returnFirstUser(users));
+
+
+    //2. Create a function, returnTotalUserLogins, that takes in an array of user objects and returns the total count of logins
+    //for all users.
+
+    //returnTotalUserLogins(users) should return... 133
+
+    function returnTotalUserLogins(users){
+        var loginTotal = 0;
+        for (var i = 0; i < users.length; i += 1){
+            loginTotal += users[i].numberOfLogins;
+        }
+            return loginTotal;
+    }
+    console.log(returnTotalUserLogins(users));
+    //3. (optional bonus) create a function, returnMostFrequentUser, that takes in an array of user objects and returns the
+    //user object with the highest number of logins.
+
+
+    //returnMostFrequentUser(users) should return...
+
+    // {
+    //     username: 'ksmith',
+    //         email: 'ksmith@email.com',
+    //     numberOfLogins: 100
+    // }
+
+    function returnMostFrequentUserLogins(users){
+        var mostFrequentUser = users[0];
+        users.forEach(function(user) {
+            if (user.numberOfLogins > mostFrequentUser.numberOfLogins) {
+                mostFrequentUser = user;
+            }
+        });
+        return mostFrequentUser;
+    }
+
+console.log(returnMostFrequentUserLogins(users));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
