@@ -426,10 +426,92 @@ console.log(returnFirstUser(users));
 
 console.log(returnMostFrequentUserLogins(users));
 
+// Create a function, computeOperations, that takes in an array of operation objects and a starting integer value and returns an integer after all the calculations have completed, using the second integer argument as the first operand. Each operation object will have the following shape:
+//
+// {
+//     operation: 'subtract' (or 'multiply' or 'add'),
+//     integer: 7 (or any positive or negative integer)
+// }
+//
+// Example 1...
+//
+var operations1 = [
+
+    {
+        operation: 'add',
+        integer: 7
+    },
+    {
+        operation: 'add',
+        integer: 3
+    }
+]
+//
+//
+// computeOperations(operations1, 10) // returns 20
+//
+//
+// Example 2...
+//
+var operations2 = [
+
+    {
+        operation: 'add',
+        integer: 7
+    },
+    {
+        operation: 'add',
+        integer: 3
+    },
+    {
+        operation: 'multiply',
+        integer: 3
+    },
+]
+//
+// computeOperations(operations2, 10) // returns 60
+//
+//
+// Example 3...
+//
+var operations3 = [
+
+    {
+        operation: 'subtract',
+        integer: 5
+    },
+    {
+        operation: 'multiply',
+        integer: -2
+    },
+    {
+        operation: 'add',
+        integer: 10
+    },
+]
+//
+// computeOperations(operations3, 10) // returns 0
 
 
+function computedOperations(operation, num) {
+    var total = num;
+    // operation.forEach(function (operation) {
+    for (var i = 0; i < operation.length; i += 1) {
+        if (operation[i].operation === 'add') {
+            return total += operation[i].integer;
+        } else if (operation[i].operation === 'subtract') {
+            return total -= operation[i].integer;
+        } else if (operation[i].operation === 'multiply') {
+            return total *= operation[i].integer;
+        }
+        //});
 
+    }return total;
+}
 
+console.log(computedOperations(operations1, 10));
+console.log(computedOperations(operations2, 10));
+console.log(computedOperations(operations3, 10));
 
 
 
