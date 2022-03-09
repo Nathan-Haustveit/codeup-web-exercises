@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title class="title">Konami Code</title>
+    <style>
+
+    h1 {
+        color: white;
+        display: flex;
+        justify-content: center;
+        padding-top: 10px;
+    }
+
+    /*body {*/
+    /*    background-color: black;*/
+    /*}*/
+
+    </style>
+</head>
+<body>
+<h1>Konami Code</h1>
+<img src="Images/The-Konami-Code-In-Japanese.png">
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+
+<script>
+    "use strict";
+//---------Konami Code Up Up Down Down Left Right Left Right B A Enter---------
+//--------------------OR: 38 38 40 40 37 39 37 39 66 65 13---------------------
+    function konami(fn) {
+
+        var code = '';
+        var konami = '3838404037393739666513';
+
+        $(document).keyup(function (event) {
+            console.log(event.keyCode);
+            code += event.keyCode;
+            if (code.indexOf(konami) !== -1) {
+                fn();
+                code = '';
+            }
+        });
+    }
+    $(document).ready(function(){
+        konami(function() {
+            alert("Konami code activated.");
+        });
+    });
+
+
+        //
+
+        // 1. Console log ‘test’ when the user types
+
+        // 2. Console log the key the user pushed when the user types
+
+        // 3. Console log a string of all the keys the user has typed (creating and adding onto a global variable will likely be needed)
+
+        // 4. Create another global variable with the names of the keys for a correct input all concatenated together
+
+        // 5. Create logic such that if the user types the sequence in the correct order (if the substring is anywhere in the string of ALL the key inputs the user has typed on the page), alert a success message
+
+
+</script>
+</body>
+</html>
