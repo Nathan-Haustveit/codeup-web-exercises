@@ -97,7 +97,7 @@
 </ul>
 
 
-<button id="background">Change Background</button>
+<button id="highlight-li">Highlight</button>
 
 <button>Toggle Answers</button>
 
@@ -107,6 +107,14 @@
 <script>
   "use strict";
   $(document).ready(function(){
+
+     //Open the file named jquery_faq.html for editing. Commit all changes to GitHub.
+  //
+  //Under the FAQ, add 3 unordered lists like above. Each list should contain a national park name in an h3element, and a ul of 4 facts about the park.
+  //
+  //Create a button that, when clicked, makes the last li in each ul have a yellow background.
+
+
 
     $('button').on('click', function(){
       $('dd').toggleClass('invisible');
@@ -121,18 +129,28 @@
   $('dt').click(function (){
     $('dt').remove('highlight')
     $(this).addClass('highlight')
-  })
-
   });
 
-  $('#background').on('click', function(){
+    //Create a button that, when clicked, makes the last li in each ul have a yellow background.
+
+    $('#highlight-li').click(function(){
     $('ul').children()
             .next()
             .next()
             .next()
-            .css('background-color', 'yellow')
+            .addClass('highlight')
   });
 
+   //When any h3 is clicked, the lis underneath it should be bolded. Use font-weight: bold to achieve this.
+
+    $('h3').click(function(){
+    $(this).next().css('font-weight', 'bold')
+  });
+
+    //When any list item is clicked, first li of the parent ul should have a font color of blue.
+
+
+  });
 </script>
 </body>
 </html>
