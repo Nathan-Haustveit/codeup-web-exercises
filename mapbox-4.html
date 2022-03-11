@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fourth Map</title>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
+
+    <style>
+        #map {
+            height: 500px;
+            width: 800px;
+        }
+    </style>
+</head>
+<body>
+<div id='map'></div>
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script src="js/keys.js"></script>
+<script>
+    "use strict";
+    mapboxgl.accessToken = MAPBOX_API_TOKEN;
+
+    var map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/streets-v11', // style URL
+        center: [-98.4936, 29.4241], // starting position [lng, lat]
+        zoom: 9 // starting zoom
+    });
+
+    // Mini - Exercise 4 (before final exercise)
+    //
+    // Create an HTML file called mapbox-4.html centered on San Antonio that programmatically is re-centered over Zion National Park using the coordinates of the park by geocoding the physical address.
+    //
+    //     Add the latitude and longitude of Honolulu, Hawaii and use reverse geocoding to move the map to this location by geocoding inside of the reverseGeocode function.
+
+    geocode("Zion National Park", MAPBOX_API_TOKEN).then(function(data){
+        console.log(data);
+    setTimeout(function (){
+        map.setCenter(data),
+            map.setZoom(10)
+    }, 2000)
+
+        reverseGeocode({lng: -157.85, lat: 21.30}, MAPBOX_API_TOKEN).then(function(result){
+            console.log(result);
+            setTimeout(function (){
+                map.setCenter(result),
+                    map.setZoom(10)
+            }, 5000)
+    });
+    });
+</script>
+</body>
+</html>
