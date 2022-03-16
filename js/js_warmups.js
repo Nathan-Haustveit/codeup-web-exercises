@@ -513,9 +513,139 @@ console.log(computedOperations(operations1, 10));
 console.log(computedOperations(operations2, 10));
 console.log(computedOperations(operations3, 10));
 
+//create a function, addTwos, that takes in an array of integers and returns the sum of all 2s in the array. If no //2s are in the array, return 0.
+
+//Examples:
 
 
 
+// addTwos(nums1) // returns 2
+// addTwos(nums2) // returns 4
+// addTwos(nums3) // returns 0
+// addTwos(nums4) // returns 8
+// addTwos(nums5) // returns 10
+
+//console.log(nums1.includes(2))
+//
+function addTwos(arr) {
+    var sum = 0;
+    // arr.forEach(function(num) {
+    //     sum += (num === 2) ? num : 0;
+    // });
+    for (var i = 0; i < arr.length; i += 1) {
+        sum += (arr[i] === 2) ? arr[i] : 0;
+    }
+    return sum;
+}
+
+var nums1 = [1, 2, 3, 4, 5];
+var nums2 = [2, 2, 3, 4, 5];
+var nums3 = [10, 0, -5, 4, 5];
+var nums4 = [2, 2, -5, 2, 2];
+var nums5 = [2, 2, 2, 2, 2];
+
+
+// Write a function, returnStringObject, that takes in a string and returns an object with information about the string. The object should have properties for stringValue and stringArray.
+//
+//     Examples...
+//
+// returnStringObject('hello') // returns...
+//
+// {
+//     stringValue: 'hello',
+//         stringArray: ['h', 'e', 'l', 'l', 'o']
+// }
+//
+// returnStringObject('codeup') // returns...
+//
+// {
+//     stringValue: 'codeup',
+//         stringArray: ['c', 'o', 'd', 'e', 'u', 'p']
+// }
+
+    function returnStringObjects(string){
+        return{
+            value: string,
+            array: string.split('')
+        }
+    }
+
+
+// Write a function, countNegatives, and takes in a array of integers and returns the total number of negative numbers. 0 should be considered a non-negative number. If no negative numbers are present, return 0.
+var nums1 = [-5, 10, 2, 5]; // countNegatives(nums1) returns 1
+var nums2 = [1, -10, -2, 5]; // countNegatives(nums2) returns 2
+var nums3 = [3, 10, 2, 5]; // countNegatives(nums3) returns 0
+var nums4 = [-3, -10]; // countNegatives(nums4) returns 2
+
+function countNegatives(nums) {
+    var negativesCount = 0;
+    nums.forEach(function(num) {
+        if (num < 0) {
+            negativesCount++;
+        }
+    });
+    return negativesCount;
+}
+
+
+var nums1 = [-5, 10, 2, 5]; // countNegatives(nums1) returns 1
+var nums2 = [1, -10, -2, 5]; // countNegatives(nums2) returns 2
+var nums3 = [3, 10, 2, 5]; // countNegatives(nums3) returns 0
+var nums4 = [-3, -10]; // countNegatives(nums4) returns 2
+
+console.log(countNegatives(nums1), 1);
+console.log(countNegatives(nums2), 2);
+console.log(countNegatives(nums3), 0);
+console.log(countNegatives(nums4), 2);
+
+console.log(nums1 = [-5, 10, 2, 5]); // countNegatives(nums1) returns 1
+console.log(nums2 = [1, -10, -2, 5]); // countNegatives(nums2) returns 2
+
+//Create a function, createFirstNamesArray, that takes in an array of user objects and returns an array of first name strings. Assume that each user object has a property called 'firstName'.
+
+    //Example...
+
+var users = [
+    {
+        firstName: 'Bob',
+        lastName: 'Smith',
+        email: 'bob@email.com'
+    },
+    {
+        firstName: 'Sally',
+        lastName: 'Smith',
+        email: 'sally@email.com'
+    },
+    {
+        firstName: 'Fred',
+        lastName: 'Smith',
+        email: 'fred@email.com'
+    },
+    {
+        firstName: 'Cathy',
+        lastName: 'Smith',
+        email: 'cathy@email.com'
+    },
+    {
+        firstName: 'Joe',
+        lastName: 'Smith',
+        email: 'joe@email.com'
+    },
+];
+
+//createFirstNamesArray(users); // returns... ['Bob', 'Sally', 'Fred', 'Cathy', 'Joe']
+
+
+function createFirstNamesArray(users){
+    var firstName = []
+    for (var i = 0; i < users.length; i++) {
+        firstName += array[i].firstName + ' '
+    }
+    return firstNames
+}
+
+
+console.log(createFirstNamesArray(users))
 
 
 
