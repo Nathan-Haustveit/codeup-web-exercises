@@ -639,15 +639,30 @@ var users = [
 function createFirstNamesArray(users){
     var firstName = []
     for (var i = 0; i < users.length; i++) {
-        firstName += array[i].firstName + ' '
+        firstName += users[i].firstName + ' '
     }
     return firstNames
 }
 
-
 console.log(createFirstNamesArray(users))
 
+var changeColorButton = document.getElementById('changeColor');
 
+changeColorButton.addEventListener('click', function(){
+    document.getElementById("square").style.backgroundColor = "black";
+});
+
+// var revertColorButton = document.getElementById('revert')
+//     revertColorButton.removeEventListener('click', function(){
+//         document.getElementById("square")
+//     });
+
+
+
+document.getElementById("revert")
+    .addEventListener('click', function(){
+        location.reload();
+    });
 
 
 
