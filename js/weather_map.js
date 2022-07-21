@@ -1,5 +1,11 @@
 
     "use strict";
+    $(window).on('load', function(){
+        getLocation();
+        getForecast();
+
+    });
+
     mapboxgl.accessToken = WEATHER_TOKEN;
 
     var weatherCoordinates = [
@@ -20,7 +26,7 @@
                 var weather = '';
                 for (var i = 0; i < 5; i += 1) {
                     var getDate = new Date(data.daily[i].dt * 1000).toDateString();
-                    console.log(getDate)
+                    // console.log(getDate)
                     var getLowTemp = data.daily[i].temp.min
                     var getHighTemp = data.daily[i].temp.max
                     var getTemp = 'L: ' + getLowTemp + '&#8457;' + ' / ' + 'H: ' + getHighTemp + '&#8457;'
@@ -28,15 +34,15 @@
                     var icon = data.daily[i].weather[0].icon;
                     return '<img src="http://openweathermap.org/img/w/' +  icon + '.png">'
                 }
-                    console.log(getTemp)
+                    // console.log(getTemp)
                     var getDescription = 'Description: ' + data.daily[i].weather[0].main
-                    console.log(getDescription)
+                    // console.log(getDescription)
                     var getWindSpeed = 'Wind: ' + data.daily[i].wind_speed +'mph'
-                    console.log(getWindSpeed)
+                    // console.log(getWindSpeed)
                     var getPressure = 'Pressure: ' + data.daily[i].pressure
-                    console.log(getPressure)
+                    // console.log(getPressure)
                     var getHumidity = 'Humidity: ' + data.daily[i].humidity
-                    console.log(getHumidity)
+                    // console.log(getHumidity)
                     weather +=
                         '<div class="card">' +
                         '<div class="card-header">' +
@@ -100,3 +106,19 @@
         });
     }
 
+    function getLocation() {
+        var coord = marker.getLngLat();
+        // console.log(coord);
+        var lngLat = {lng: coord.lng, lat: coord.lat};
+        reverseGeocode2(lngLat, MAPBOX_API_TOKEN).then(function (data) {
+            // console.log(data.features[3].place_name)
+            var currentLocationData = data.features[3].place_name;
+            var currentLocationArray = currentLocationData.split(' ');
+            // console.log(currentLocationArray);
+            currentLocationArray.pop();
+            currentLocationArray.pop();
+            var currentLocationString = currentLocationArray.join(' ');
+            // console.log(currentLocationArray);
+            $('#current-location').html(currentLocationString);
+        });
+    }
